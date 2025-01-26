@@ -39,17 +39,21 @@ local G2L = {}
 local screenSize = game:GetService("Workspace").CurrentCamera.ViewportSize
 
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+G2L["1"].IgnoreGuiInset = true -- Ignore la barre supérieure de Roblox
+
 G2L["2"] = Instance.new("Frame", G2L["1"])
 G2L["2"].BorderSizePixel = 0
 G2L["2"].BackgroundColor3 = Color3.fromRGB(0, 0, 141)
-G2L["2"].Size = UDim2.new(0, screenSize.X, 0, screenSize.Y)
-G2L["2"].Position = UDim2.new(0, 0, 0, 0)  -- L'écran est en plein écran
+G2L["2"].AnchorPoint = Vector2.new(0, 0)
+G2L["2"].Size = UDim2.new(1, 0, 1, 0) -- Utilisation relative pour couvrir tout l'écran
+G2L["2"].Position = UDim2.new(0, 0, 0, 0)  
 G2L["2"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+
 
 -- Texte principal centré
 G2L["3"] = Instance.new("TextLabel", G2L["2"])
 G2L["3"].BorderSizePixel = 0
-G2L["3"].TextSize = 10
+G2L["3"].TextSize = 14
 G2L["3"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 G2L["3"].FontFace = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 G2L["3"].TextColor3 = Color3.fromRGB(0, 0, 0)
